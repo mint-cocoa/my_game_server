@@ -16,4 +16,5 @@ add_executable(my_game_server main.cpp
         ServerCore/SocketAddressFactory.h
         ServerCore/SocketPoll.cpp
         ServerCore/SocketPoll.h
+        main.cpp
 )

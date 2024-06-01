@@ -1,10 +1,8 @@
-#pragma once
-#include <pcap/socket.h>
-#include <sys/socket.h>
-#include <optional>
-#include <iostream>
 #include "UDPSocket.h"
 #include "TCPSocket.h"
+#include <sys/socket.h>
+#include <netdb.h>
+
 #define NO_ERROR 0
 enum SocketAddressFamily {
     INET = AF_INET,
@@ -14,16 +12,16 @@ enum SocketAddressFamily {
 class SocketUtil {
 public:
     static UDPSocketPtr CreateUDPSocket(SocketAddressFamily inFamily) {
-        SOCKET s = socket(inFamily, SOCK_DGRAM, IPPROTO_UDP);
-        if (s != INVALID_SOCKET)
+        int s = socket(inFamily, SOCK_DGRAM, IPPROTO_UDP);
+        if (s != -1)
         {
             return UDPSocketPtr(new UDPSocket(s));
         }
         
     }
     static TCPSocketPtr CreateTCPSocket(SocketAddressFamily inFamily) {
-        SOCKET s = socket(inFamily, SOCK_STREAM, IPPROTO_TCP);
-        if (s != INVALID_SOCKET)
+        int  s = socket(inFamily, SOCK_STREAM, IPPROTO_TCP);
+        if (s != -1)
         {
             return TCPSocketPtr(new TCPSocket(s));
         }
@@ -37,6 +35,4 @@ public:
     static int GetLastError() {
         return errno;
     }
-    
-    
 };

@@ -1,8 +1,0 @@
-# ninja log v5
-3	122	1717036535024966772	CMakeFiles/my_game_server.dir/ServerCore/SocketAddress.cpp.o	b7f1a7c5c13166f7
-8	506	1717037547758232252	CMakeFiles/my_game_server.dir/ServerCore/TCPSocket.cpp.o	767a42ec3622a06a
-4	195	1717036535096933366	CMakeFiles/my_game_server.dir/ServerCore/SocketAddressFactory.cpp.o	d655e35492f0ac70
-7	412	1717037547663599956	CMakeFiles/my_game_server.dir/ServerCore/SocketUtil.cpp.o	a38dded6818ddca8
-7	428	1717037547679909036	CMakeFiles/my_game_server.dir/ServerCore/UDPSocket.cpp.o	7c414a495f4988ab
-3	339	1717037622835962965	CMakeFiles/my_game_server.dir/main.cpp.o	776ae35a7a8f7c6b
-339	373	1717037622870776219	my_game_server	30966ac53a36ff79

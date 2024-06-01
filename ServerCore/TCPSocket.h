@@ -1,6 +1,3 @@
-
-#include <memory>
-#include <pcap/socket.h>
 class TCPSocket;
 using TCPSocketPtr = std::shared_ptr<TCPSocket>;
 class TCPSocket {
@@ -17,7 +14,7 @@ public:
 
 private:
     friend class SocketUtil;
-    explicit TCPSocket(SOCKET inSocket) : mSocket(inSocket) {}
-    SOCKET mSocket;
+    explicit TCPSocket(int inSocket) : mSocket(inSocket) {}
+    int mSocket;
 };
 

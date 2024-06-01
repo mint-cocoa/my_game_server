@@ -1,8 +1,7 @@
-#pragma once
 #include <sys/socket.h>
-#include <netinet/in.h>
+#include <cstring>
 #include <memory>
-
+#include <netinet/in.h>
 class SocketAddress {
 public:
     SocketAddress(uint32_t inAddress, uint16_t inPort)
@@ -13,7 +12,7 @@ public:
     }
     SocketAddress(const sockaddr& inSockAddr)
     {
-        memcpy(&mSockAddr, &inSockAddr, sizeof(sockaddr));
+        std::memcpy(&mSockAddr, &inSockAddr, sizeof(sockaddr));
     }
     size_t GetSize() const { return sizeof(sockaddr); }
 
