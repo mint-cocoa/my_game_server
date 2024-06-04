@@ -1,5 +1,6 @@
 #include "UDPSocket.h"
 #include "TCPSocket.h"
+#include "SocketAddress.h"
 #include <sys/socket.h>
 #include <netdb.h>
 

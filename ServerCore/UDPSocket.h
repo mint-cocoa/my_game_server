@@ -9,7 +9,7 @@
 class UDPSocket;
 using UDPSocketPtr = std::shared_ptr<UDPSocket>;
 
-class UDPSocket {
+class UDPSocket{
 public:
     ~UDPSocket();
 

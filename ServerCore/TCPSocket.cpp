@@ -33,8 +33,8 @@ int TCPSocket::Listen(int inBacklog) {
 
 TCPSocketPtr TCPSocket::Accept(SocketAddress& inFromAddress) {
     socklen_t length = inFromAddress.GetSize();
-    SOCKET newSocket = accept(mSocket, &inFromAddress.mSockAddr, &length);
-    if (newSocket != INVALID_SOCKET) {
+    int newSocket = accept(mSocket, &inFromAddress.mSockAddr, &length);
+    if (newSocket != -1) {
         return TCPSocketPtr(new TCPSocket(newSocket));
     }
     SocketUtil::ReportError("TCPSocket::Accept");
