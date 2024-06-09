@@ -1,25 +1,23 @@
 cmake_minimum_required(VERSION 3.28)
-project(my_game_server)
-
+project(MyServer)
 set(CMAKE_CXX_STANDARD 23)
+# ServerCore 라이브러리 생성
 
-add_executable(my_game_server main.cpp
-        ServerCore/SocketAddress.cpp
-        ServerCore/SocketAddress.h
-        ServerCore/UDPSocket.cpp
-        ServerCore/UDPSocket.h
-        ServerCore/SocketUtil.cpp
-        ServerCore/SocketUtil.h
-        ServerCore/TCPSocket.cpp
-        ServerCore/TCPSocket.h
-        ServerCore/SocketAddressFactory.cpp
-        ServerCore/SocketAddressFactory.h
-        ServerCore/SocketPoll.cpp
-        ServerCore/SocketPoll.h
-        main.cpp
-        ServerCore/SocketUtil.h
-        ServerCore/Lock.cpp
-        ServerCore/Lock.h
-        ServerCore/Listener.cpp
-        ServerCore/Listener.h
+
+
+# 라이브러리의 헤더 파일 경로 설정
+add_subdirectory(ServerCore
 )
+
+# 메인 프로그램 빌드
+add_executable(MyServer
+        main.cpp
+
+)
+
+# MyProgram과 ServerCore 라이브러리 연결
+target_link_libraries(MyServer PRIVATE ServerCore)
+
+find_package(Protobuf REQUIRED)
+find_package(gRPC REQUIRED)
+

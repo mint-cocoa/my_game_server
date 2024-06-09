@@ -17,7 +17,7 @@ public:
     int SendTo(const void *data, int length, const SocketAddress &address);
     int ReceiveFrom(char *buffer, int length, SocketAddress &address);
     bool SetNonBlockingMode(bool shouldBeNonBlocking);
-
+    int getFD() const;
 private:
     friend class SocketUtil;
     explicit UDPSocket(int inSocket) : mSocket(inSocket) {}

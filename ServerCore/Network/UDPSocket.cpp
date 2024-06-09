@@ -1,5 +1,5 @@
-#include "UDPSocket.h"
-#include "SocketUtil.h"
+#include "include/UDPSocket.h"
+#include "include/SocketUtil.h"
 UDPSocket::~UDPSocket() {
     shutdown(mSocket, SHUT_RDWR);
 }
@@ -54,3 +54,5 @@ bool UDPSocket::SetNonBlockingMode(bool shouldBeNonBlocking) {
     }
     return true;
 }
+
+int UDPSocket::getFD() const {return mSocket;}

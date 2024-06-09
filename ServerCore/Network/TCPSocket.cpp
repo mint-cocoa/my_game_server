@@ -1,4 +1,4 @@
-#include "SocketUtil.h"
+#include "include/SocketUtil.h"
 
 TCPSocket::~TCPSocket() {
     shutdown(mSocket, SHUT_RDWR);
@@ -74,3 +74,5 @@ bool TCPSocket::SetNonBlockingMode(bool shouldBeNonBlocking) {
     }
     return true;
 }
+
+int TCPSocket::getFD() const {return mSocket;}
