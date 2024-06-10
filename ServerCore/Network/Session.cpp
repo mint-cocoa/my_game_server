@@ -37,5 +37,5 @@ void Session::OnRead() {
 }
 
 void Session::OnWrite() {
-    // Write data to the client if needed...
+
 }

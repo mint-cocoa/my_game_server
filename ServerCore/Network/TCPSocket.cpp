@@ -37,6 +37,7 @@ TCPSocketPtr TCPSocket::Accept(SocketAddress& inFromAddress) {
     if (newSocket != -1) {
         return TCPSocketPtr(new TCPSocket(newSocket));
     }
+
     SocketUtil::ReportError("TCPSocket::Accept");
     return nullptr;
 }
@@ -74,5 +75,3 @@ bool TCPSocket::SetNonBlockingMode(bool shouldBeNonBlocking) {
     }
     return true;
 }
-
-int TCPSocket::getFD() const {return mSocket;}

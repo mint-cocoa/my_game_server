@@ -3,14 +3,7 @@
 #include <atomic>
 #include <cstdint>
 using BYTE = unsigned char;
-using int8 = int8_t;
-using int16 = int16_t
-using int32 =
-using int64 = __int64;
-using uint8 = unsigned __int8;
-using uint16 = unsigned __int16;
-using uint32 = unsigned __int32;
-using uint64 = unsigned __int64;
+
 
 template<typename T>
 using Atomic = std::atomic<T>;

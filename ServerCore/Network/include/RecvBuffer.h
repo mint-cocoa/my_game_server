@@ -1,7 +1,7 @@
-#pragma once
 #include <cstdint>
-#include <tic.h>
-
+#include "/home/cocoa/my_game_server/ServerCore/Main/include/Types.h"
+#include <vector>
+#include <memory>
 class RecvBuffer
 {
     enum { BUFFER_COUNT = 10 };
@@ -24,5 +24,5 @@ private:
     int32_t			_bufferSize = 0;
     int32_t			_readPos = 0;
     int32_t			_writePos = 0;
-    Vector<BYTE>	_buffer;
+    std::vector<BYTE>	_buffer;
 };

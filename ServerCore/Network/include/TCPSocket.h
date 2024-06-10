@@ -3,6 +3,8 @@ class TCPSocket;
 using TCPSocketPtr = std::shared_ptr<TCPSocket>;
 class TCPSocket {
 public:
+    TCPSocket(TCPSocketPtr sharedPtr);
+
     ~TCPSocket();
 
     int Connect(const SocketAddress& inAddress);

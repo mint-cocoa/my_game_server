@@ -15,7 +15,7 @@ EpollServer::EpollServer(int maxEvents, SocketAddress& address) : _maxEvents(max
     event.events = EPOLLIN;
     event.data.ptr = &_serverSocket;
 
-    SocketAddress receivingAddress(INADDR_ANY, 48000); // bind to all interfaces on port 48000
+    SocketAddress receivingAddress(INADDR_ANY, 48000); // bind to all interfaces
     _serverSocket->Bind(receivingAddress);
     _serverSocket->Listen();
 
@@ -38,11 +38,21 @@ void EpollServer::Start() {
                 // new client connection request
                 SocketAddress newClientAddr(INADDR_ANY, 48000);
                 auto newSocket = _serverSocket->Accept(newClientAddr);
-                int newSocketFD = newSocket->getFD( )
+                int newSocketFD = newSocket->getFD( );
 
             } else {
                 // handle client data
                 TCPSocketPtr socket = *(TCPSocketPtr*)_events[i].data.ptr;
+                char buffer[1024];
+                int bytesRead = socket->Receive(buffer, 1024);
+                if (bytesRead == 0) {
+                    // client disconnected
+                    close(socket->getFD());
+                    epoll_ctl(_epollFD, EPOLL_CTL_DEL, socket->getFD(), nullptr);
+                } else {
+                    // echo data back to client
+                    socket->Send(buffer, bytesRead);
+                }
 
             }
         }

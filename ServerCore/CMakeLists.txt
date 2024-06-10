@@ -16,6 +16,8 @@ add_library(ServerCore STATIC
         Network/include/Session.h
         Network/include/Session.h
         Main/include/Types.h
+        Network/IOuringServer.cpp
+        Network/include/IOuringServer.h
 
 )
 target_include_directories(ServerCore PUBLIC Memory/include)

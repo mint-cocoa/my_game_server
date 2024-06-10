@@ -21,6 +21,7 @@ private:
     friend class UDPSocket;
     friend class TCPSocket;
     friend class SocketUtil;
+    friend class IOuringServer;
     sockaddr mSockAddr;
     sockaddr_in* GetAsSockAddrIn() { return reinterpret_cast<sockaddr_in*>(&mSockAddr); }
 };
