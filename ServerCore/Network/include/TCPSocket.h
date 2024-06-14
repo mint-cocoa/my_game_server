@@ -15,7 +15,7 @@ public:
     int Send(const void* inData, int inLen);
     int Receive(void* inBuffer, int inLen);
     bool SetNonBlockingMode(bool shouldBeNonBlocking);
-    int getFD() const;
+    int getFD() const{return mSocket;}
 private:
     friend class SocketUtil;
     explicit TCPSocket(int inSocket) : mSocket(inSocket) {}
