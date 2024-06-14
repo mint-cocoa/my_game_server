@@ -1,4 +1,5 @@
 #pragma once
+#include "SocketAddress.h"
 class TCPSocket;
 using TCPSocketPtr = std::shared_ptr<TCPSocket>;
 class TCPSocket {
@@ -20,4 +21,3 @@ private:
     explicit TCPSocket(int inSocket) : mSocket(inSocket) {}
     int mSocket;
 };
-

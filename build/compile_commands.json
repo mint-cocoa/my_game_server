@@ -1,0 +1,62 @@
+[
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -std=gnu++23 -o CMakeFiles/ServerCore.dir/ServerCore/Network/SocketAddress.cpp.o -c /home/cocoa/my_game_server/ServerCore/Network/SocketAddress.cpp",
+  "file": "/home/cocoa/my_game_server/ServerCore/Network/SocketAddress.cpp"
+},
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -std=gnu++23 -o CMakeFiles/ServerCore.dir/ServerCore/Network/UDPSocket.cpp.o -c /home/cocoa/my_game_server/ServerCore/Network/UDPSocket.cpp",
+  "file": "/home/cocoa/my_game_server/ServerCore/Network/UDPSocket.cpp"
+},
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -std=gnu++23 -o CMakeFiles/ServerCore.dir/ServerCore/Network/SocketUtil.cpp.o -c /home/cocoa/my_game_server/ServerCore/Network/SocketUtil.cpp",
+  "file": "/home/cocoa/my_game_server/ServerCore/Network/SocketUtil.cpp"
+},
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -std=gnu++23 -o CMakeFiles/ServerCore.dir/ServerCore/Network/TCPSocket.cpp.o -c /home/cocoa/my_game_server/ServerCore/Network/TCPSocket.cpp",
+  "file": "/home/cocoa/my_game_server/ServerCore/Network/TCPSocket.cpp"
+},
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -std=gnu++23 -o CMakeFiles/ServerCore.dir/ServerCore/Network/EPollServer.cpp.o -c /home/cocoa/my_game_server/ServerCore/Network/EPollServer.cpp",
+  "file": "/home/cocoa/my_game_server/ServerCore/Network/EPollServer.cpp"
+},
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -std=gnu++23 -o CMakeFiles/ServerCore.dir/ServerCore/Memory/Lock.cpp.o -c /home/cocoa/my_game_server/ServerCore/Memory/Lock.cpp",
+  "file": "/home/cocoa/my_game_server/ServerCore/Memory/Lock.cpp"
+},
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -std=gnu++23 -o CMakeFiles/ServerCore.dir/ServerCore/Network/RecvBuffer.cpp.o -c /home/cocoa/my_game_server/ServerCore/Network/RecvBuffer.cpp",
+  "file": "/home/cocoa/my_game_server/ServerCore/Network/RecvBuffer.cpp"
+},
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -std=gnu++23 -o CMakeFiles/ServerCore.dir/ServerCore/Network/protobuf.cpp.o -c /home/cocoa/my_game_server/ServerCore/Network/protobuf.cpp",
+  "file": "/home/cocoa/my_game_server/ServerCore/Network/protobuf.cpp"
+},
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -std=gnu++23 -o CMakeFiles/ServerCore.dir/ServerCore/Network/Session.cpp.o -c /home/cocoa/my_game_server/ServerCore/Network/Session.cpp",
+  "file": "/home/cocoa/my_game_server/ServerCore/Network/Session.cpp"
+},
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -std=gnu++23 -o CMakeFiles/ServerCore.dir/ServerCore/Network/IOuringServer.cpp.o -c /home/cocoa/my_game_server/ServerCore/Network/IOuringServer.cpp",
+  "file": "/home/cocoa/my_game_server/ServerCore/Network/IOuringServer.cpp"
+},
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -std=gnu++23 -o CMakeFiles/MyServer.dir/main.cpp.o -c /home/cocoa/my_game_server/main.cpp",
+  "file": "/home/cocoa/my_game_server/main.cpp"
+},
+{
+  "directory": "/home/cocoa/my_game_server/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/cocoa/my_game_server/ServerCore/Network/include -I/home/cocoa/my_game_server/ServerCore/Memory/include -g -DGTEST_HAS_PTHREAD=1 -std=gnu++23 -o CMakeFiles/IOuringServerTest.dir/ServerCore/test/IOuringServerTest.cpp.o -c /home/cocoa/my_game_server/ServerCore/test/IOuringServerTest.cpp",
+  "file": "/home/cocoa/my_game_server/ServerCore/test/IOuringServerTest.cpp"
+}
+]

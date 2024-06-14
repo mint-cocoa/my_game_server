@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "MyServer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "IOuringServerTest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-IOuringServerTest-Debug-87e92468869df26a4688.json",
+					"name" : "IOuringServerTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MyServer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MyServer-Debug-ed36168e0aae906e9b5b.json",
+					"name" : "MyServer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ServerCore::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ServerCore-Debug-8f6aa41735c8f048aa70.json",
+					"name" : "ServerCore",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/cocoa/my_game_server/build",
+		"source" : "/home/cocoa/my_game_server"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
