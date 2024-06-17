@@ -1,10 +1,10 @@
-#include "include/UDPSocket.h"
+    #include "include/UDPSocket.h"
 #include "include/SocketUtil.h"
 UDPSocket::~UDPSocket() {
     shutdown(mSocket, SHUT_RDWR);
 }
 
-int UDPSocket::BindSocket(const SocketAddress &inToAddress) {
+int UDPSocket::BindSocket(const SocketAddress& inToAddress) {
     int err = bind(mSocket, &inToAddress.mSockAddr, inToAddress.GetSize());
     if (err == 0) {
         return err;
@@ -12,7 +12,7 @@ int UDPSocket::BindSocket(const SocketAddress &inToAddress) {
     return -1;
 }
 
-int UDPSocket::SendTo(const void *data, int length, const SocketAddress &address) {
+int UDPSocket::SendTo(const void *data, int length, const SocketAddress& address) {
     int byteSentCount = sendto(
             mSocket,
             static_cast<const char *>(data),
@@ -26,7 +26,7 @@ int UDPSocket::SendTo(const void *data, int length, const SocketAddress &address
     return -1;
 }
 
-int UDPSocket::ReceiveFrom(char *buffer, int length, SocketAddress &address) {
+int UDPSocket::ReceiveFrom(char* buffer, int length, SocketAddress& address) {
     socklen_t fromLength = address.GetSize();
     int byteReceivedCount = recvfrom(
             mSocket,

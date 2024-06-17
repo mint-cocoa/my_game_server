@@ -9,9 +9,6 @@ int main() {
         return 1;
     }
 
-    EpollTcpServer server(*bindAddress);
-
-    server.start();
     return 0;
 }
  

@@ -42,7 +42,7 @@ void EpollServer::Start() {
 
             } else {
                 // handle client data
-                TCPSocketPtr socket = *(TCPSocketPtr*)_events[i].data.ptr;
+                auto socket = static_cast<TCPSocket*>(_events[i].data.ptr); // cast to TCPSocket
                 char buffer[1024];
                 int bytesRead = socket->Receive(buffer, 1024);
                 if (bytesRead == 0) {

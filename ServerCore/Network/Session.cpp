@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <iostream>
 
-Session::Session(int epollFD, TCPSocketPtr clientSocket)
+Session::Session(int epollFD, TCPSocketPtr& clientSocket)
         : _epollFD(epollFD), _clientSocket(clientSocket) {}
 
 void Session::Start() {

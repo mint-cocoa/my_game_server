@@ -9,10 +9,10 @@ class Session;
 using SessionPtr = std::shared_ptr<Session>;
 class Session {
 public:
-    Session();
+    Session(int epollFD, TCPSocketPtr& clientSocket);
     virtual ~Session();
-
-
+    void Start();
+    void HandleEvent(uint32_t events);
 private:
     void OnRead();
     void OnWrite();

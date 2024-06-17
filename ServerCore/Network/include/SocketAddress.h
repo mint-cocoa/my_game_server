@@ -26,5 +26,4 @@ private:
     sockaddr_in* GetAsSockAddrIn() { return reinterpret_cast<sockaddr_in*>(&mSockAddr); }
 };
 
-using SocketAddressPtr = std::shared_ptr<SocketAddress>;
 

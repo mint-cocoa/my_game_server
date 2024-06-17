@@ -2,6 +2,7 @@
 
 #include "UDPSocket.h"
 #include "TCPSocket.h"
+#include "../Main/include/Types.h"
 #include "SocketAddress.h"
 #include <sys/socket.h>
 #include <netdb.h>
@@ -18,7 +19,7 @@ class SocketUtil {
 public:
     static UDPSocketPtr CreateUDPSocket(SocketAddressFamily inFamily);
     static TCPSocketPtr CreateTCPSocket(SocketAddressFamily inFamily);
-    static SocketAddressPtr CreateIPv4FromString(const std::string& inString);
+    static SocketAddressRef CreateIPv4FromString(const std::string& inString);
     static void ReportError(const char* inOperationDesc);
     static int GetLastError();
     TCPSocketPtr Epoll(TCPSocketPtr socket, int epollfd, int events);

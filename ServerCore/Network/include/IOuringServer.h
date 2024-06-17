@@ -16,7 +16,7 @@
 class IOuringServer {
 
 public:
-    IOuringServer(SocketAddress &address);
+    explicit IOuringServer(SocketAddress &address);
     ~IOuringServer();
     
     bool start();   
