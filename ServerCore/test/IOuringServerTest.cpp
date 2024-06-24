@@ -1,4 +1,4 @@
-#include "../Network/include/IOuringServer.h"
+#include "../Network/include/UringCore.h"
 #include "../Network/include/SocketUtil.h"
 #include <gtest/gtest.h>
 
@@ -13,7 +13,7 @@ protected:
         delete server;
     }
 
-    IOuringServer* server;
+    UringCore* server;
 };
 
 TEST_F(IOuringServerTest, StartServer) {

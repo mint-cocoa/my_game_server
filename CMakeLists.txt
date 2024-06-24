@@ -28,11 +28,13 @@ add_library(ServerCore STATIC
         ServerCore/Network/TCPSocket.cpp
         ServerCore/Network/EPollServer.cpp
         ServerCore/Memory/Lock.cpp
-        ServerCore/Network/RecvBuffer.cpp
         ServerCore/Network/IOuringServer.cpp
         ServerCore/Network/protobuf.cpp
         ServerCore/Network/Session.cpp
         ServerCore/Memory/Lock.cpp
+        ServerCore/Network/Buffer.cpp
+        ServerCore/Network/UringBuffer.cpp
+        ServerCore/Network/UringBuffer.cpp
 )
 
 target_include_directories(ServerCore PUBLIC ServerCore/Network/include ${LIBURING_INCLUDE_DIRS})
@@ -52,6 +54,20 @@ include(GoogleTest)
 add_executable(IOuringServerTest
         ServerCore/test/IOuringServerTest.cpp
         GameServer/GameServer.cpp
+        ServerCore/Network/Service.cpp
+        ServerCore/Network/include/Service.h
+        ServerCore/Network/include/Buffer.h
+        ServerCore/Network/include/RecvBuffer.h
+        ServerCore/Network/SendBuffer.cpp
+        ServerCore/Network/include/SendBuffer.h
+        ServerCore/Network/BufferUtil.cpp
+        ServerCore/Network/include/BufferUtil.h
+        ServerCore/Network/UringBuffer.cpp
+        ServerCore/Network/SendBuffer.cpp
+        ServerCore/Network/include/SendBuffer.h
+        ServerCore/Network/include/RecvBuffer.h
+        ServerCore/Network/Listener.cpp
+        ServerCore/Network/include/Listener.h
 )
 
 target_include_directories(IOuringServerTest PUBLIC ServerCore/Network/include ${LIBURING_INCLUDE_DIRS})

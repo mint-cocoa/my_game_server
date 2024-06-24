@@ -21,9 +21,11 @@ private:
     friend class UDPSocket;
     friend class TCPSocket;
     friend class SocketUtil;
-    friend class IOuringServer;
+    friend class UringCore;
     sockaddr mSockAddr;
     sockaddr_in* GetAsSockAddrIn() { return reinterpret_cast<sockaddr_in*>(&mSockAddr); }
 };
+
+using SocketAddressPtr = std::shared_ptr<SocketAddress>;
 
 

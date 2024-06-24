@@ -1,4 +1,4 @@
- #include "include/SocketUtil.h"
+#include "include/SocketUtil.h"
 
 TCPSocket::~TCPSocket() {
     shutdown(mSocket, SHUT_RDWR);
@@ -16,7 +16,7 @@ int TCPSocket::Connect(const SocketAddress& inAddress) {
 int TCPSocket::Bind(const SocketAddress& inToAddress) {
     int err = bind(mSocket, &inToAddress.mSockAddr, inToAddress.GetSize());
     if (err >= 0) {
-        return NO_ERROR;
+        return shared_from_this();
     }
     SocketUtil::ReportError("TCPSocket::Bind");
     return -SocketUtil::GetLastError();
