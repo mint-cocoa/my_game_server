@@ -1,5 +1,4 @@
 #pragma once
-
 #include "UDPSocket.h"
 #include "TCPSocket.h"
 #include "SocketAddress.h"
@@ -22,7 +21,6 @@ public:
     static SocketAddressPtr CreateIPv4FromString(const std::string& inString);
     static void ReportError(const char* inOperationDesc);
     static int GetLastError();
-    static IOuringServerPtr CreateIOuringServer();
     
 };
         

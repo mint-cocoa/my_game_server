@@ -1,12 +1,11 @@
-
-#include <cstdint>
-#include "include/SendBuffer.h"
+#include "pch.h"
+#include "SendBuffer.h"
 
 /*----------------
 	SendBuffer
 -----------------*/
 
-SendBuffer::SendBuffer(SendBufferChunkRef owner, BYTE* buffer, uint32_t allocSize)
+SendBuffer::SendBuffer(SendBufferChunkRef owner, BYTE* buffer, uint32 allocSize)
         : _owner(owner), _buffer(buffer), _allocSize(allocSize)
 {
 }
@@ -15,7 +14,7 @@ SendBuffer::~SendBuffer()
 {
 }
 
-void SendBuffer::Close(uint32_t writeSize)
+void SendBuffer::Close(uint32 writeSize)
 {
     ASSERT_CRASH(_allocSize >= writeSize);
     _writeSize = writeSize;

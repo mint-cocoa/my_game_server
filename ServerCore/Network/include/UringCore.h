@@ -5,38 +5,40 @@
 #include <netinet/in.h>
 #include <cstdint>
 #include "SocketUtil.h"
-#include "UringBuffer.h"
 #include "SendBuffer.h"
 
+#pragma once
 
-
-enum ContextType : uint8_t { Accept, Close, Read, Write };
-struct UringObject{
+/*----------------
+	IocpObject
+-----------------*/
+class UringObject;
+using UringObjectPtr  = std::shared_ptr<UringObject>;
+class UringObject
+{
 public:
-    int32_t client_fd;
-    ContextType type;
-
+    virtual io_uring GetUring() abstract;
+    virtual void Dispatch(class UringEvent* uringEvent, int32_t bufferId) abstract;
 };
+
+
 
 class UringCore {
 public:
     UringCore();
     ~UringCore();
 
-
-
     static constexpr unsigned NUM_SUBMISSION_QUEUE_ENTRIES = 1024;
     static constexpr unsigned NUM_WAIT_ENTRIES = 1;
     static constexpr unsigned CQE_BATCH_SIZE = 16;
 
+    bool		Register(UringObjectPtr uringObject);
+    bool		Dispatch(uint32_t timeoutMs = INFINITE);
 
-    void Register(UringObject obj);
-    void Dispatch();
+
     
 private:
 
-    io_uring_sqe* sqe_;
-    std::vector<io_uring_cqe*> cqes;
     io_uring uring_;
 };
 

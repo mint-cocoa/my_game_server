@@ -1,6 +1,9 @@
 #pragma once
-#include "UringCore.h"
+#include "IocpCore.h"
+#include "IocpEvent.h"
+#include "SocketUtil.h"
 #include "RecvBuffer.h"
+#include "Service.h"
 
 class Service;
 
@@ -8,8 +11,10 @@ class Service;
 	Session
 ---------------*/
 
-class Session : public UringObject
+class Session : public IocpObject
 {
+    friend class Listener;
+    friend class IocpCore;
     friend class Service;
 
     enum
@@ -22,11 +27,12 @@ public:
     virtual ~Session();
 
 public:
+    /* �ܺο��� ��� */
     void				Send(SendBufferRef sendBuffer);
     bool				Connect();
     void				Disconnect(const WCHAR* cause);
 
-    shared_ptr<Service>	GetService() { return _service.lock(); }
+    std::shared_ptr<Service>	GetService() { return _service.lock(); }
     void				SetService(shared_ptr<Service> service) { _service = service; }
 
 public:
@@ -40,7 +46,7 @@ public:
 private:
     /* �������̽� ���� */
     virtual HANDLE		GetHandle() override;
-    virtual void		Dispatch(UringObject* event, int32_t numOfBytes = 0) override;
+    virtual void		Dispatch(class IocpEvent* iocpEvent, int32 numOfBytes = 0) override;
 
 private:
     /* ���� ���� */
@@ -57,7 +63,7 @@ private:
     void				HandleError(int32 errorCode);
 
 protected:
-    /* ������ �ڵ忡�� ������ */
+
     virtual void		OnConnected() { }
     virtual int32		OnRecv(BYTE* buffer, int32 len) { return len; }
     virtual void		OnSend(int32 len) { }

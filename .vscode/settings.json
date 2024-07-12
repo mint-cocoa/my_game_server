@@ -3,6 +3,7 @@
         "gtest_build_samples": "ON"
     },
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "atomic": "cpp"
     }
 }

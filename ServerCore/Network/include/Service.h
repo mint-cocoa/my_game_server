@@ -1,53 +1,77 @@
+#ifndef MYSERVER_SERVICE_H
+#define MYSERVER_SERVICE_H
 
+#include <memory>
 #include <functional>
-#include <cstdint>
+#include <unordered_set>
+#include "NetAddress.h"
+#include "IocpCore.h"
 
-class Service : public enable_shared_from_this<Service>
+class Session;
+class Listener;
+
+using SessionRef = std::shared_ptr<Session>;
+using ListenerRef = std::shared_ptr<Listener>;
+using SessionFactory = std::function<SessionRef(void)>;
+
+enum class ServiceType : uint8_t
 {
-public:
-    Service(ServiceType type, NetAddress address, IocpCoreRef core, SessionFactory factory, int32 maxSessionCount = 1);
-    virtual ~Service();
-
-    virtual bool		Start() abstract;
-    bool				CanStart() { return _sessionFactory != nullptr; }
-
-    virtual void		CloseService();
-    void				SetSessionFactory(SessionFactory func) { _sessionFactory = func; }
-
-    void				Broadcast(SendBufferRef sendBuffer);
-    SessionRef			CreateSession();
-    void				AddSession(SessionRef session);
-    void				ReleaseSession(SessionRef session);
-    int32				GetCurrentSessionCount() { return _sessionCount; }
-    int32				GetMaxSessionCount() { return _maxSessionCount; }
-
-public:
-    ServiceType			GetServiceType() { return _type; }
-    NetAddress			GetNetAddress() { return _netAddress; }
-    IocpCoreRef&		GetIocpCore() { return _iocpCore; }
-
-protected:
-    USE_LOCK;
-    ServiceType			_type;
-    NetAddress			_netAddress = {};
-    IocpCoreRef			_iocpCore;
-
-    Set<SessionRef>		_sessions;
-    int32				_sessionCount = 0;
-    int32				_maxSessionCount = 0;
-    SessionFactory		_sessionFactory;
+    Server,
+    Client
 };
 
+class Service : public std::enable_shared_from_this<Service>
+{
+public:
+    Service(ServiceType type, NetAddress address, IocpCoreRef core, SessionFactory factory, int32_t maxSessionCount);
+    virtual ~Service();
+
+    virtual bool Start() = 0;
+    bool CanStart() { return _sessionFactory != nullptr; }
+
+    virtual void CloseService();
+    void Broadcast(SendBufferRef sendBuffer);
+
+    SessionRef CreateSession();
+    void AddSession(SessionRef session);
+    void ReleaseSession(SessionRef session);
+
+    int32_t GetCurrentSessionCount() { return _sessionCount; }
+    int32_t GetMaxSessionCount() { return _maxSessionCount; }
+
+    ServiceType GetServiceType() { return _type; }
+    NetAddress GetNetAddress() { return _netAddress; }
+    UringCoreRef& GetUringCore() { return _uringCore; }
+
+protected:
+    ServiceType _type;
+    NetAddress _netAddress;
+    UringCoreRef _uringCore;
+
+    SessionFactory _sessionFactory;
+    int32_t _maxSessionCount;
+    int32_t _sessionCount;
+    std::unordered_set<SessionRef> _sessions;
+};
+
+using ServiceRef = std::shared_ptr<Service>;
+
+class ClientService : public Service
+{
+public:
+    ClientService(NetAddress targetAddress, IocpCoreRef core, SessionFactory factory, int32_t maxSessionCount);
+    virtual bool Start() override;
+};
 
 class ServerService : public Service
 {
 public:
-    ServerService(NetAddress targetAddress, IocpCoreRef core, SessionFactory factory, int32 maxSessionCount = 1);
-    virtual ~ServerService() {}
-
-    virtual bool	Start() override;
-    virtual void	CloseService() override;
+    ServerService(NetAddress address, IocpCoreRef core, SessionFactory factory, int32_t maxSessionCount);
+    virtual bool Start() override;
+    virtual void CloseService() override;
 
 private:
-    ListenerRef		_listener = nullptr;
+    ListenerRef _listener;
 };
+
+#endif //MYSERVER_SERVICE_H
